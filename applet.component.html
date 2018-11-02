@@ -1,0 +1,33 @@
+<h1>Library</h1>
+<div id="sidebar">
+<div class='category'>Categories</div>
+<form (submit)="filter(applet.value)">
+  <div for="applet">
+    <input placeholder="Search applets" type="text" #applet>
+  </div>
+</form>
+
+<div *ngIf="cat != []; then showcat else dne"> 
+</div>
+<ng-template #showcat>
+  <ul>
+    <li *ngFor="let element of cat"><button (click)="onClick(element)">{{element}}</button></li>
+    <li *ngFor ="let n of len">{{len}}</li>
+  </ul>
+</ng-template>
+</div>
+<div id='apple'>
+  <div>Applets</div>
+
+  <div *ngIf="appletName!='';then showapplet else message"></div>
+  <ng-template #showapplet><div> {{appletName}}</div></ng-template>
+  <ng-template #message></ng-template>
+
+  <div *ngIf="list !=[] ;then displayapp else nothing"></div>
+  <ng-template #displayapp>
+  <ul>
+      <li class="listApplet"*ngFor ="let x of list">{{x}}</li>     
+  </ul> 
+  </ng-template>
+  <ng-template #nothing><p>there is no applet belong this       catergory</p></ng-template>
+</div>
