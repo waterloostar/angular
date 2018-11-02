@@ -1,0 +1,78 @@
+li{
+  list-style-type: none;
+  text-align: left;
+}
+#apple{
+  width:650px;
+  height:670px;
+  background-color: white;
+  display: inline-block;
+  font-family:Arial, Helvetica, sans-serif;
+   font-size: 30px;
+   margin-left:20px;
+}
+#sidebar {
+  height:670px;
+  width:350px;
+  border-right:  2px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  font-family:Arial, Helvetica, sans-serif;
+}
+input{
+  
+  border-radius:8px;
+  height:35px;
+  width:200px;
+  padding: 5px;
+  color:grey;
+  
+}
+format{
+  box-shadow: none;
+}
+::-webkit-input-placeholder{
+  font-size: 15px;
+  text-align: left;
+  margin-left:13px;
+}
+button{
+  height: 40px;
+  width:187px;
+  border:0px;
+  font-size: 15px;
+  background:white;
+  text-align: left;
+  margin-bottom: 35px;
+}
+button:hover,button:active{
+  height: 40px;
+  width:187px;
+  padding: 15px;
+  margin-bottom: 35px;
+  background: #337AB7;
+  font-size:15px;
+  border:0px;
+}
+h1{
+  margin-left: 35px;
+}
+.category{
+  margin-left:35px;
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+form{
+  margin-left:35px;
+}
+.listApplet{
+  background-color: #F5F5F5;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+#apple.li{
+  font-size: 15px;
+  background: #337AB7;
+}
