@@ -10,22 +10,32 @@
 <div *ngIf="cat != []; then showcat else dne"> 
 </div>
 <ng-template #showcat>
-  <ul>
-    <li *ngFor="let element of cat"><button (click)="onClick(element)">{{element}}</button></li>
-    <li *ngFor ="let n of len">{{len}}</li>
+  <ul class="ng">
+    <li *ngFor="let element of cat;let i =index">
+      <button #showbutton (click)="onClick(element,applet.value)" >{{element}}
+        <span class='numberCircle'>{{num[i]}}</span>
+      </button>      
+    </li> 
+  </ul>
+</ng-template>
+<ng-template #dne>
+  <ul class="ng">
+    <li *ngFor="let element of category"><button>{{element}}<span class='numberCircle'>{{num[2]}}</span></button> </li> 
   </ul>
 </ng-template>
 </div>
 <div id='apple'>
-  <div>Applets</div>
+  <div class='title'>Applets</div>
 
-  <div *ngIf="appletName!='';then showapplet else message"></div>
-  <ng-template #showapplet><div> {{appletName}}</div></ng-template>
+  <div *ngIf="appletName!='';then showapplet else message" onkeydown="remove()"></div>
+  
+  <ng-template #showapplet><div id='appletname'class="listApplet" style='margin-top:70px;'*ngIf="applet.value"> {{appletName}}</div></ng-template>
   <ng-template #message></ng-template>
 
   <div *ngIf="list !=[] ;then displayapp else nothing"></div>
-  <ng-template #displayapp>
-  <ul>
+  <ng-template #displayapp >
+   
+  <ul >
       <li class="listApplet"*ngFor ="let x of list">{{x}}</li>     
   </ul> 
   </ng-template>
