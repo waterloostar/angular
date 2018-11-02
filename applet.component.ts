@@ -18,12 +18,12 @@ export class AppletComponent implements OnInit {
   list:string[];
   numCat:string[];
   len:number;
-
+  num:string[];
   constructor(){
 
   }
   ngOnInit(){
-    
+   
     this.category = [
        'Investments',
        'Operations',
@@ -48,8 +48,14 @@ export class AppletComponent implements OnInit {
   enableProdMode(){
 
   }
+  remove(){
+      document.getElementById('list').innerHTML = '';
+  }
+
   filter(applet){
     console.log(applet);
+    console.log('list');
+    console.log(this.list);
     var appletName;
     if (applet!="")
     {
@@ -61,42 +67,46 @@ export class AppletComponent implements OnInit {
           this.appletName=this.applets[i].name
           console.log(this.cat)    
           console.log(applet)
-          if(this.cat.length==2){
-          this.len=this.cat.length-1}
-          else{
-            this.len=this.cat.length
+          if(applet.toLowerCase()=='cms'){
+            this.num=['1','1']
           }
-          return this.cat,this.appletName
+           if(applet.toLowerCase()=='performance snapshot'){
+            this.num=['1']
+          }
+          if(applet.toLowerCase()=='commitment widget'){
+            this.num=['1']
+          }
+          return this.cat,this.appletName,this.num,this.list
         }  
       }
       console.log('no match')
       console.log(this.category)
-      this.cat=[]
+      this.cat=this.category
       this.appletName=''
+      this.num=['0','0','0']
       return this.cat,this.appletName
     }
     else{
-
+      this.num=['2','0','2']
       this.cat=this.category
       this.appletName=''
       return this.cat,this.appletName
     }
   }
-  onClick(element){
+  
+  onClick(element,applet){
+    if(applet == ''){
     this.aName=''
     console.log(element)
     console.log(this.applets.length)
-    if(element.toLowerCase()=='operations'){
-      this.len=0
-    }
-    else{
     for(var i=0;i<this.applets.length;i++) {
       console.log(i)
       for(var j=0;j<this.applets[i].categories.length;j++){
         console.log(j)
         if(element.indexOf(this.applets[i].categories[j]) !== -1){
-        console.log(this.applets[i].name)
-        this.aName=this.aName+this.applets[i].name+','
+          console.log('find it')
+          console.log(this.applets[i].name)
+          this.aName=this.aName+this.applets[i].name+','
       }
     }
   }
@@ -112,7 +122,11 @@ export class AppletComponent implements OnInit {
   }
   console.log(this.list)
   this.len=this.list.length
-  return this.list,this.len
+  console.log(this.len)
+  return this.list,this.len,true
+  }
+  else{
+    return false
   }
   }
 }
